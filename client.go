@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/go-redis/redis/v7"
+	"github.com/go-redis/redis"
 	"gopkg.in/ini.v1"
 )
 
