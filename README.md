@@ -1,2 +1,0 @@
-# dingtab
-dingtalk-tab
