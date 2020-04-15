@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-redis/redis/v7"
+	"github.com/go-redis/redis"
 	"github.com/qiniu/api.v7/v7/auth/qbox"
 	"github.com/qiniu/api.v7/v7/storage"
 	"gopkg.in/ini.v1"
@@ -201,6 +201,12 @@ func main() {
 				break
 			case "3":
 				ScreenShot()
+				break
+			case "4":
+				cmd := exec.Command("adb", "shell", "input", "keyevent", "26")
+				cmd.Output()
+				cmd = exec.Command("adb", "shell", "input", "swipe", "360", "960", "360", "320")
+				cmd.Output()
 				break
 			}
 

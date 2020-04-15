@@ -67,17 +67,6 @@ func main() {
 	}
 
 	runtime.GOMAXPROCS(1)
-	// var rdb = redis.NewClient(&redis.Options{
-	// 	Addr:     cfg.Redis["host"] + ":" + cfg.Redis["port"],
-	// 	Password: cfg.Redis["password"], // no password set
-	// 	DB:       db,                    // use default DB
-	// })
-
-	// key := cfg.App["name"] + "dingtab"
-	// fmt.Println("pubsub: "+key, rdb)
-	// fmt.Println("image url: http://mmstatic.meimeifa.com/" + cfg.App["name"] + "-screen.png")
-	// rdb.Publish(key, "{}").Err()
-
 	http.HandleFunc("/index.php", servePHP)             // 设置访问的路由
 	http.HandleFunc("/index.html", serveHTML)           // 设置访问的路由
 	err = http.ListenAndServe(":"+cfg.App["port"], nil) // 设置监听的端口
