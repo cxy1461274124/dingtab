@@ -119,6 +119,7 @@ func serveHTML(w http.ResponseWriter, r *http.Request) {
 		<button id="fresh">更新截图</button>
 		<button id="start">启动钉钉</button>
 		<button id="text">输入字符</button>
+		<button id="unlock">解锁屏幕</button>
 	
 		<script type="text/javascript">
 		  $(function () {
@@ -173,13 +174,28 @@ func serveHTML(w http.ResponseWriter, r *http.Request) {
 				"json"
 			  );
 			});
-		  $("#fresh").click(function (e) {
+		    $("#fresh").click(function (e) {
 			  $.post(
 				"/index.php",
 				{
 				  x: "0",
 				  y: "0",
 				  z: "3",
+				  data: ""
+				},
+				function (data) {
+				  console.log(data);
+				},
+				"json"
+			  );
+			});
+		    $("#unlock").click(function (e) {
+			  $.post(
+				"/index.php",
+				{
+				  x: "0",
+				  y: "0",
+				  z: "4",
 				  data: ""
 				},
 				function (data) {
